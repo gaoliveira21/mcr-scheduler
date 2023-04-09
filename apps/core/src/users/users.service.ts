@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { EncryptService } from '@lib/encrypt';
 
 import { CreateUserDto } from './dtos/create-user.dto';
@@ -12,6 +12,12 @@ export class UsersService {
   ) {}
 
   async create({ password, ...data }: CreateUserDto) {
+    const existingUser = await this.usersRepository.findByEmail(data.email);
+
+    if (existingUser) {
+      throw new BadRequestException('User already exists');
+    }
+
     const encryptedPassword = await this.encryptService.encrypt(password);
 
     const user = await this.usersRepository.create({
