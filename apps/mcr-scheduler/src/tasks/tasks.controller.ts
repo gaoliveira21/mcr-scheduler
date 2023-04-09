@@ -1,7 +1,7 @@
 import { Controller, UseFilters } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 
-import { ExceptionFilter } from 'src/@shared/exception-filters/rpc-exception.filter';
+import { ExceptionFilter } from 'apps/mcr-scheduler/src/@shared/exception-filters/rpc-exception.filter';
 
 import { CreateTaskDto } from './dtos/create-task.dto';
 import { TasksService } from './tasks.service';

@@ -1,10 +1,36 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/mcr-scheduler/src",
   "compilerOptions": {
     "deleteOutDir": true,
-    "assets": ["**/*.proto"],
-    "watchAssets": true
+    "assets": [
+      "**/*.proto"
+    ],
+    "watchAssets": true,
+    "webpack": true,
+    "tsConfigPath": "apps/mcr-scheduler/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/mcr-scheduler",
+  "projects": {
+    "mcr-scheduler": {
+      "type": "application",
+      "root": "apps/mcr-scheduler",
+      "entryFile": "main",
+      "sourceRoot": "apps/mcr-scheduler/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/mcr-scheduler/tsconfig.app.json"
+      }
+    },
+    "core": {
+      "type": "application",
+      "root": "apps/core",
+      "entryFile": "main",
+      "sourceRoot": "apps/core/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/core/tsconfig.app.json"
+      }
+    }
   }
 }

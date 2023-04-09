@@ -17,7 +17,14 @@ async function bootstrap() {
       options: {
         url: '0.0.0.0:50051',
         package: 'tasks',
-        protoPath: path.join('src', 'tasks', 'proto', 'tasks.proto'),
+        protoPath: path.join(
+          'apps',
+          'mcr-scheduler',
+          'src',
+          'tasks',
+          'proto',
+          'tasks.proto',
+        ),
       },
     },
   );
