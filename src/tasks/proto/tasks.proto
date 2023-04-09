@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package tasks;
+
+service TasksService {
+  rpc Create(CreateTaskRequest) returns (CreateTaskResponse) {}
+}
+
+message TaskMetadata {
+  int32 event_id = 1;
+}
+
+message CreateTaskRequest {
+  int32 user_id = 1;
+  string run_at = 2;
+  optional TaskMetadata metadata = 3;
+}
+
+message CreateTaskResponse {
+  string message = 1;
+}
