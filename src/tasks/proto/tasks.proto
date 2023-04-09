@@ -18,4 +18,5 @@ message CreateTaskRequest {
 
 message CreateTaskResponse {
   string message = 1;
+  string job_id = 2;
 }
