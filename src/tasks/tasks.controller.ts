@@ -1,18 +1,15 @@
-import { Controller } from '@nestjs/common';
+import { Controller, UseFilters } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { Metadata, ServerUnaryCall } from '@grpc/grpc-js';
+
+import { ExceptionFilter } from 'src/@shared/exception-filters/rpc-exception.filter';
 
 import { CreateTaskDto } from './dtos/create-task.dto';
 
 @Controller()
 export class TasksController {
+  @UseFilters(new ExceptionFilter())
   @GrpcMethod('TasksService', 'Create')
-  async create(
-    data: CreateTaskDto,
-    _metadata: Metadata,
-    call: ServerUnaryCall<any, any>,
-  ) {
-    console.log(call.request);
-    return data.metadata;
+  async create(data: CreateTaskDto) {
+    return { message: 'Task scheduled' };
   }
 }
