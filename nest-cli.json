@@ -40,6 +40,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/encrypt/tsconfig.lib.json"
       }
+    },
+    "prisma-client": {
+      "type": "library",
+      "root": "libs/prisma-client",
+      "entryFile": "index",
+      "sourceRoot": "libs/prisma-client/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/prisma-client/tsconfig.lib.json"
+      }
     }
   }
 }

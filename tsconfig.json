@@ -23,6 +23,12 @@
       ],
       "@lib/encrypt/*": [
         "libs/encrypt/src/*"
+      ],
+      "@lib/prisma-client": [
+        "libs/prisma-client/src"
+      ],
+      "@lib/prisma-client/*": [
+        "libs/prisma-client/src/*"
       ]
     }
   }
