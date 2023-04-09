@@ -1,5 +1,15 @@
 version: "3.9"
 services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: pg.admin@123
+
   redis:
     container_name: "redis_scheduler"
     image: "redis:alpine"
