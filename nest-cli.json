@@ -31,6 +31,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/core/tsconfig.app.json"
       }
+    },
+    "encrypt": {
+      "type": "library",
+      "root": "libs/encrypt",
+      "entryFile": "index",
+      "sourceRoot": "libs/encrypt/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/encrypt/tsconfig.lib.json"
+      }
     }
   }
 }
