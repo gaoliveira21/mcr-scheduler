@@ -10,5 +10,6 @@ import { UsersRepository } from './users.repository';
   imports: [EncryptModule, PrismaClientModule],
   controllers: [UsersController],
   providers: [UsersService, UsersRepository],
+  exports: [UsersRepository],
 })
 export class UsersModule {}
