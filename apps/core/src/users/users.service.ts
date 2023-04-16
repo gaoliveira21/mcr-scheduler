@@ -27,4 +27,16 @@ export class UsersService {
 
     return user;
   }
+
+  async getUserData(userId: string) {
+    const user = await this.usersRepository.findById(userId);
+
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    };
+  }
 }

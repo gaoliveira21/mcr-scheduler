@@ -11,6 +11,12 @@ import { User } from '@prisma/client';
 export class UsersRepository {
   constructor(private readonly prisma: PrismaClientService) {}
 
+  async findById(userId: string): Promise<User | undefined> {
+    return this.prisma.user.findFirst({
+      where: { id: userId },
+    });
+  }
+
   async findByEmail(email: string): Promise<User | undefined> {
     return this.prisma.user.findFirst({ where: { email } });
   }
